@@ -56,8 +56,6 @@ def drawProjection(latmin, latmax, lonmin, lonmax, guid):
         acd.plotData(open('2011-02-west-midlands-street.csv'), [latmin,latmax] , [lonmin,lonmax], 0, 0, guid)
     except ValueError:
         sys.exit(-1)
-for arg in sys.argv:
-    print(arg)
 
 latmin = float(sys.argv[1]) 
 latmax = float(sys.argv[2])

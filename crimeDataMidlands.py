@@ -32,8 +32,8 @@ class AreaCrimeData:
         plt.imshow(H, extent=extent, interpolation='gaussian')
 
         plt.axis('off')
-
-        plt.savefig(guid + '.png', format='png')
+        
+        plt.savefig(guid + '.png', format='png' alpha=0.5)
     def cleanData(self, csvData):
         longsAndLats = []
         csvData.readline()

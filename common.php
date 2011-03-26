@@ -1,7 +1,11 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('error_reporting', E_ALL & E_NOTICE);
+
 include('class.mysql_db.php');
 include('functions.php');
 
+define('STRIP', true);
 $db = new mysql_db;
 $db->sql_connect('localhost', 'nhtg', 'nhtg', 'nhtg');
 
@@ -14,7 +18,7 @@ function error_msg($msg)
 	global $template;
 	
 	$template->set('PAGE_TITLE', 'Error');
-	echo '<h1>Error</h1><p>' . $msg . '<br /><a href="/">Back to home</a></p>';
+	echo '<p>' . $msg . '<br /><a href="/">Back</a></p>';
 	exit;
 }
 

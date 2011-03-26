@@ -2,14 +2,68 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>ONE NATION UNDER CCTV</title>
+<title>ONE NATION UNDER CCTV ;; {PAGE_TITLE}</title>
 <link href="{SCRIPT_PATH}style.css" rel="stylesheet" type="text/css" />
 </head>
+<script type="text/javascript">
+// <![CDATA[
+	var onload_functions = new Array();
+	var onunload_functions = new Array();
+
+	/**
+	* New function for handling multiple calls to window.onload and window.unload by pentapenguin
+	*/
+	window.onload = function()
+	{
+		for (var i = 0; i < onload_functions.length; i++)
+		{
+			eval(onload_functions[i]);
+		}
+	}
+
+	window.onunload = function()
+	{
+		for (var i = 0; i < onunload_functions.length; i++)
+		{
+			eval(onunload_functions[i]);
+		}
+	}
+	
+	function getElementsByStyleClass(className)
+	{
+	  var all = document.all ? document.all :
+		document.getElementsByTagName('*');
+	  var elements = new Array();
+	  for (var e = 0; e < all.length; e++)
+		if (all[e].className == className)
+		  elements[elements.length] = all[e];
+	  return elements;
+	}
+
+	function autotab(original, destination)
+	{
+		if (original.getAttribute && original.value.length == original.getAttribute('maxlength'))
+		{
+			destination.focus();
+		}
+	}
+
+	function change_text(changee, oldText, newText) {
+		//changes text in source element
+		var elementToChange = document.getElementById(changee);
+		elementToChange.innerHTML = (elementToChange.innerHTML == oldText) ? newText : oldText;
+	}
+
+// ]]>
+</script>
 <body>
 
-<div id="header">ONE NATION UNDER CCTV</div>
+<div id="header">
+	<h1><a href="/">ONE NATION UNDER CCTV</a></h1>
+</div>
 
 <div id="main">
+	<h2>{PAGE_TITLE}</h2>
 	{PAGE_CONTENT}
 </div>
 

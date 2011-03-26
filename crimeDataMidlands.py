@@ -1,6 +1,8 @@
 import urllib2
 import zipfile
 import mapnik
+import sys
+
 
 from matplotlib import pyplot as plt
 import numpy
@@ -48,8 +50,17 @@ class AreaCrimeData:
         c = Coord(float(eastingnorthing[0]), float(eastingnorthing[1]))
         c = britishProjection.inverse(c)
         return [c.y,c.x]
-def test():
+def drawProjection(latmin, latmax, lonmin, lonmax, guid):
     acd = AreaCrimeData()
-    acd.plotData(open('2011-02-west-midlands-street.csv'), [-34.0,53.0] , [-3.0,0], 0, 0, 'test')
+    acd.plotData(open('2011-02-west-midlands-street.csv'), [latmin,latmax] , [lonmin,lonmax], 0, 0, guid)
 
-test()
+for arg in sys.argv:
+    print(arg)
+
+latmin = float(sys.argv[1]) 
+latmax = float(sys.argv[2])
+lonmin = float(sys.argv[3])
+lonmax = float(sys.argv[4])
+guid = str(sys.argv[5])
+
+drawProjection(latmin, latmax, lonmin, lonmax, guid)

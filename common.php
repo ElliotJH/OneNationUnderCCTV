@@ -1,15 +1,16 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('error_reporting', E_ALL & E_NOTICE);
+//ini_set('display_errors', 1);
+//ini_set('error_reporting', E_ALL && E_NOTICE);
 
 include('class.mysql_db.php');
 include('functions.php');
 
 define('STRIP', true);
 $db = new mysql_db;
-$db->sql_connect('localhost', 'nhtg', 'nhtg', 'nhtg');
+$db->sql_connect('localhost', 'cctv', 'cctv', 'cctv');
 
 $template = new template;
+$template->sitename = 'OneNationUnderCCTV';
 
 ob_start(array($template, 'parse'));
 
@@ -24,8 +25,15 @@ function error_msg($msg)
 
 class template
 {
+	var $sitename = '';
+	var $template = '';
 	var $data = array();
 	var $parse = true;
+	
+	function template()
+	{
+		$this->template = file_get_contents('template.htm');
+	}
 	
 	function parse($buffer)
 	{
@@ -35,11 +43,10 @@ class template
 			return $buffer;
 		}
 		
+		$this->set('PAGE_TITLE', $this->sitename . ((isset($this->data['PAGE_TITLE']) && $this->data['PAGE_TITLE']) ? ' ;; ' . $this->data['PAGE_TITLE'] : ''));
 		$this->set('PAGE_CONTENT', $buffer);
 		
-		$template = file_get_contents('/home/pete/www/template.htm');
-		
-		return preg_replace_callback('/{([\w]+)}/', array($this, 'parse_callback'), $template);
+		return preg_replace_callback('/{([\w]+)}/', array($this, 'parse_callback'), $this->template);
 	}
 	
 	function parse_callback($match)

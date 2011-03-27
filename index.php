@@ -2,13 +2,14 @@
 include('common.php');
 
 $template->set(array(
-	'PAGE_TITLE'	=> 'Map',
+	//'PAGE_TITLE'	=> 'Map',
 ));
 
 //gen_heatmap(52.4, -3, 52.5, -2);
 
 ?>
-<div id="map_canvas" style="width: 100%; height: 650px"></div>
+<p style="font-size: large;">OneNationUnderCCTV is a project to determine the cost-effectiveness of government CCTV systems and their ability to reduce crime-rates. We plot data on the location of CCTV in an area, obtained via Freedom of Information Requests, with frequency of crime from public datasets. We also make it easy for individuals to identify CCTV operators and make Subject Access Requests to data controllers.</p>
+<div id="map_canvas" style="width: 100%; height: 400px"></div>
 <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
 <script type="text/javascript">
 // <![CDATA[

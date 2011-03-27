@@ -44,7 +44,7 @@ if ($submit)
 }
 
 ?>
-<h3>Data controller</h3>
+<h2>Data controller</h2>
 <fieldset>
 	<p><strong><?php echo $row['operator_name']; ?></strong></p>
 	<dl>
@@ -61,7 +61,7 @@ if ($submit)
 	</dl>
 </fieldset>
 
-<h3>Subject access request tool</h3>
+<h2>Subject access request tool</h2>
 <p>Fill in your contact details below and details of the incident you which to make a request for, and we will generate a Subject Access Request for you and email it to the data controller.</p>
 <form method="post" action="">
 	<fieldset>

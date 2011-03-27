@@ -1,0 +1,272 @@
+/* General Markup Styles
+---------------------------------------- */
+* {
+	/* Reset browsers default margin, padding and font sizes */
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 100%;
+	/* Always show a scrollbar for short pages - stops the jump when the scrollbar appears. non-IE browsers */
+	height: 100%;
+	margin-bottom: 1px;
+}
+
+body {
+	/* Text-Sizing with ems: http://www.clagnut.com/blog/348/ */
+	font-family: Verdana, Helvetica, Arial, sans-serif;
+	color: #333;
+	background-color: #000000;
+	/*font-size: 62.5%;			 This sets the default font size to be equivalent to 10px */
+	font-size: 10px;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	background-image: url(images/bg.jpg);
+	background-repeat: repeat-x;
+}
+
+h2 {
+	/* Forum header titles */
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	color: #3f3f3f;
+	font-size: 1.7em;
+	margin: 0.8em 0 0.2em 0;
+}
+
+h2.solo {
+	margin-bottom: 1em;
+}
+
+h3 {
+	/* Sub-headers (also used as post headers, but defined later) */
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	text-transform: uppercase;
+	border-bottom: 1px solid #CCCCCC;
+	margin-bottom: 3px;
+	padding-bottom: 2px;
+	font-size: 1.05em;
+	color: #989898;
+	margin-top: 20px;
+}
+
+h4 {
+	/* Forum and topic list titles */
+	font-family: "Trebuchet MS", Verdana, Helvetica, Arial, Sans-serif;
+	font-size: 1.3em;
+}
+
+p {
+	line-height: 1.3em;
+	font-size: 1.1em;
+	margin-bottom: 1.5em;
+}
+
+img {
+	border-width: 0;
+}
+
+hr {
+	/* Also see tweaks.css */
+	border: 0 none #FFFFFF;
+	border-top: 1px solid #CCCCCC;
+	height: 1px;
+	margin: 5px 0;
+	display: block;
+	clear: both;
+}
+
+hr.dashed {
+	border-top: 1px dashed #CCCCCC;
+	margin: 10px 0;
+}
+
+hr.divider {
+	display: none;
+}
+
+p.right {
+	text-align: right;
+}
+
+a:link	{
+	color: #069;
+	text-decoration: none;
+}
+a:visited	{
+	color: #069;
+	text-decoration: none;
+}
+a:hover	{
+	color: #09C;
+	text-decoration: underline;
+}
+a:active	{
+	color: #09C;
+	text-decoration: none;
+}
+.small {
+	font-size: 0.85em;
+}
+.light {
+	color: #666;
+}
+
+/* Misc layout styles
+---------------------------------------- */
+/* column[1-2] styles are containers for two column layouts 
+   Also see tweaks.css */
+.column1 {
+	float: left;
+	clear: left;
+	width: 49%;
+}
+
+.column2 {
+	float: right;
+	clear: right;
+	width: 49%;
+}
+
+/* General classes for placing floating blocks */
+.left-box {
+	float: left;
+	width: auto;
+	text-align: left;
+}
+
+.right-box {
+	float: right;
+	width: auto;
+	text-align: right;
+}
+
+ul, li {
+	margin-left: 10px;
+}
+#container {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 780px;
+	text-align: left;
+}
+#header {
+	height: 290px;
+	position: relative;
+	background-image: url(images/header.jpg);
+	background-repeat: no-repeat;
+}
+/*#header h1 a {
+	height: 100px;
+	width: 317px;
+	text-indent: -5000px;
+	text-decoration: none;
+	background-image: url(images/logo_bg.jpg);
+	background-repeat: no-repeat;
+	display: block;
+}*/
+#main {
+	position: relative;
+	padding: 10px;
+	background-color: #FE9800;
+}
+#footer {
+	height: 100px;
+	position: relative;
+	background-color: #FEFE00;
+	padding: 10px;
+}
+#footer #cctv {
+	height: 70px;
+	padding-left: 75px;
+	background-image: url(images/cctv.gif);
+	background-repeat: no-repeat;
+}
+#footer a:link	{
+	color: #000;
+	text-decoration: underline;
+}
+#footer a:visited	{
+	color: #000;
+	text-decoration: underline;
+}
+#footer a:hover	{
+	color: #09C;
+	text-decoration: underline;
+}
+#footer a:active {
+	color: #000;
+	text-decoration: underline;
+}
+.tooltip:hover span {
+	position: absolute; left: 1em; top: 2em; z-index: 99;
+	margin-left: 0; width: 180px;
+}
+.tooltip-r:hover span {
+	position: absolute; right: 1em; top: 2em; z-index: 99;
+	margin-left: 0; width: 180px;
+}
+table {
+	font: "Trebuchet MS", "Bitstream Vera Sans", Verdana, Helvetica, sans-serif;
+	border-collapse: separate;
+	border-spacing: 0;
+	margin: 0 0 1em 0;
+	color:#000;
+}
+thead th, thead td {
+	font-weight: bold;
+	line-height:normal;
+	text-align: left;
+	border-bottom: 0.4em solid #09f;
+}
+tfoot th, tfoot td {
+	text-align: left;
+	border-top: 0.4em solid #09f;
+	font-weight: bold
+}
+th, td {
+	padding: 0.25em;
+}
+tbody th, td {
+	text-align: left;
+	vertical-align: top;
+}
+tbody th {
+	font-weight: normal;
+	white-space: nowrap;
+}
+tbody th a:link, tbody th a:visited {
+	font-weight: bold;
+}
+tbody th + td {
+	white-space: nowrap;
+}
+tbody td, tbody th {
+	border: 1px solid #fff;
+	border-width: 1px 0;
+}
+tbody tr.odd th, tbody tr.odd td {
+	border-color: #deded8;
+	background: #f9f9fb;
+}
+tbody tr:hover td, tbody tr:hover th {
+	border-color: #09f;
+	background: #fbfbf8;
+}
+caption {
+	font-weight: bold;
+	font-size: 1.7em;
+	text-align: left;
+	margin: 0;
+	padding: 0.5em 0.25em;
+}
+td.num {
+	text-align: right;
+}
+td.icon {
+	width: 16px;
+}

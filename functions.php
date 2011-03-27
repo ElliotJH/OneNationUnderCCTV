@@ -28,42 +28,6 @@ function geocode_address($address, $min_accuracy = 5)
 	}
 }
 
-function geocode_cameras()
-{
-	global $db;
-	
-	$sql = 'SELECT * FROM cameras';
-	$result = $db->sql_query($sql);
-
-	$postcodes = array();
-	while ($row = $db->sql_fetchrow($result))
-	{
-		if (!$row['camera_postcode'])
-		{
-			continue;
-		}
-	
-		if(isset($postcodes[$row['camera_postcode']]))
-		{
-			$geocode = $postcodes[$row['camera_postcode']];
-		}
-		else
-		{
-			$geocode = geocode_address($row['camera_postcode']);
-			$postcodes[$row['camera_postcode']] = $geocode;
-		}
-	
-		if ($geocode)
-		{
-			$sql = 'UPDATE cameras
-				SET camera_lat = ' . $geocode[0] . ', camera_lng = ' . $geocode[1] . '
-				WHERE camera_id = ' . $row['camera_id'];
-			$db->sql_query($sql);
-		}
-		echo $row['camera_id'] . ' - ' . (($geocode) ? 'Success' : 'Fail') . '<br />';
-	}
-}
-
 function camera_addr($data, $br = false)
 {
 	$separator = ($br) ? '<br />' : ', ';

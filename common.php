@@ -12,7 +12,10 @@ $db->sql_connect('localhost', 'cctv', 'cctv', 'cctv');
 $template = new template;
 $template->sitename = 'OneNationUnderCCTV';
 
-ob_start(array($template, 'parse'));
+if (!defined('CLI') || CLI == false)
+{
+	ob_start(array($template, 'parse'));
+}
 
 function error_msg($msg)
 {

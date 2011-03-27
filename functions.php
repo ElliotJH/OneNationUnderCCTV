@@ -110,7 +110,14 @@ Kind regards,
 
 function gen_heatmap($lat1, $lng1, $lat2, $lng2)
 {
-	system("python crimeDateMidlands.py $lat1 $lng1 $lat2 $lng2 foobar", $output);
+	$params = "python ./crimeDateMidlands.py $lat1 $lat2 $lng1 $lng2 foobar";
+	echo $params;
+	system($params, $output);
+	
+	if ($output == -1)
+	{
+		return false;
+	}
 }
 
 ?>

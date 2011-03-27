@@ -5,6 +5,7 @@ $template->set(array(
 	'PAGE_TITLE'	=> 'Map',
 ));
 
+//gen_heatmap(52.4, -3, 52.5, -2);
 
 ?>
 <div id="map_canvas" style="width: 100%; height: 650px"></div>
@@ -89,6 +90,15 @@ $template->set(array(
 			echo "add_marker(point, '{$row['camera_postcode']}','<h2>Camera at {$row['camera_postcode']}</h2><p>Operated by <a href=\"sar.php?camera_id={$row['camera_id']}\">{$row['operator_name']}</a>.</p>{$installed}<dl>Camera address</dl><dd>{$address}</dd><p><strong><a href=\"sar.php?camera_id={$row['camera_id']}\">Subject Access Requests</a></strong></p>');" . "\n";
 		}
 		?>
+		
+		var imageBounds = new google.maps.LatLngBounds(
+			new google.maps.LatLng(52.2, -2.5),
+			new google.maps.LatLng(53.4, -1)
+		);
+		var crime = new google.maps.GroundOverlay(
+			"foobar.png",
+		imageBounds);
+		crime.setMap(map);
 	}
 
 	onload_functions.push('initialize()');
